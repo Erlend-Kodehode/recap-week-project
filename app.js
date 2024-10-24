@@ -114,15 +114,13 @@ const topSellers = [
 for (let i = 0; i < topSellers.length; i++) {
   //creates a div to contain the contents and gives it an unique id to keep track of it and a class for styling
   const gameCard = document.createElement("div");
-  gameCard.id = `card${i}`;
   gameCard.className = "gameCard";
   //appends the div to the card container
   document.querySelector("#cardContainer").append(gameCard);
 
   const gameHeader = document.createElement("div");
-  gameHeader.id = `header${i}`;
   gameHeader.className = "gameHeader";
-  document.querySelector(`#card${i}`).append(gameHeader);
+  gameCard.append(gameHeader);
 
   //creates an image
   const gameLogo = document.createElement("img");
@@ -130,48 +128,43 @@ for (let i = 0; i < topSellers.length; i++) {
   gameLogo.src = `logos/${topSellers[i].logo}`;
   //gives the image a class for styling
   gameLogo.className = "gameLogo";
-  //appends the image to the card via the unique id
-  document.querySelector(`#header${i}`).append(gameLogo);
+  gameHeader.append(gameLogo);
 
   const gameTitleContainer = document.createElement("div");
-  gameTitleContainer.id = `titleContainer${i}`;
   gameTitleContainer.className = "gameTitleContainer";
-  document.querySelector(`#header${i}`).append(gameTitleContainer);
+  gameHeader.append(gameTitleContainer);
 
   //creates an h2 and sets the text to the title of the game
   const gameTitle = document.createElement("h2");
   gameTitle.textContent = topSellers[i].title;
-  //appends the h2 to the card via the unique id
-  document.querySelector(`#titleContainer${i}`).append(gameTitle);
+  gameTitleContainer.append(gameTitle);
 
   //creates a paragraph and sets the text to the developer of the game
   const gameDev = document.createElement("p");
   gameDev.textContent = topSellers[i].developer;
-  document.querySelector(`#titleContainer${i}`).append(gameDev);
+  gameTitleContainer.append(gameDev);
 
   //creates a paragraph and sets the text to the realese year of the game
   const gameRelease = document.createElement("p");
   gameRelease.textContent = topSellers[i].releaseYear;
-  //appends the paragraph to the card via the unique id
-  document.querySelector(`#titleContainer${i}`).append(gameRelease);
+  gameTitleContainer.append(gameRelease);
 
   //creates a paragraph and sets the text to the description of the game
   const gameDesc = document.createElement("p");
   gameDesc.textContent = topSellers[i].description;
-  //appends the paragraph to the card via the unique id
-  document.querySelector(`#card${i}`).append(gameDesc);
+  gameCard.append(gameDesc);
 
   //creates a paragraph and sets the text to the catogires of the game
   const gameCateg = document.createElement("p");
   gameCateg.textContent = `Categories: ${topSellers[i].categories.join(", ")}`;
-  //gives the paragaph a class for styling and appends it to the card via the unique id
+  //gives the paragaph a class for styling and appends it to the card
   gameCateg.className = "bold";
-  document.querySelector(`#card${i}`).append(gameCateg);
+  gameCard.append(gameCateg);
 
   //creates a paragraph and sets the text to the platforms the game is avaliable on
   const gamePltf = document.createElement("p");
   gamePltf.textContent = `Platforms: ${topSellers[i].platforms.join(", ")}`;
-  //gives the paragaph a class for styling and appends it to the card via the unique id
+  //gives the paragaph a class for styling and appends it to the card
   gameCateg.className = "bold";
-  document.querySelector(`#card${i}`).append(gamePltf);
+  gameCard.append(gamePltf);
 }
