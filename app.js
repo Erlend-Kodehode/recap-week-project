@@ -111,7 +111,7 @@ const topSellers = [
 ];
 
 for (const game of topSellers) {
-  //creates a div to contain the contents and gives it an unique id to keep track of it and a class for styling
+  //creates a div to contain the contents and gives it a class for styling
   const gameCard = document.createElement("div");
   gameCard.className = "gameCard";
   //appends the div to the card container
